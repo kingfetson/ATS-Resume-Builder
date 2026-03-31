@@ -1,0 +1,126 @@
+:root {
+    --primary: #2c3e50;
+    --secondary: #34495e;
+    --accent: #3498db;
+    --bg: #f4f7f6;
+    --white: #ffffff;
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; }
+
+body { background-color: var(--bg); height: 100vh; overflow: hidden; }
+
+.app-container {
+    display: flex;
+    height: 100%;
+}
+
+/* --- EDITOR PANEL (LEFT) --- */
+.editor-panel {
+    width: 400px;
+    background: var(--white);
+    padding: 2rem;
+    overflow-y: auto;
+    border-right: 1px solid #ddd;
+    box-shadow: 2px 0 10px rgba(0,0,0,0.05);
+}
+
+.editor-panel h2 { margin-bottom: 1.5rem; color: var(--primary); font-size: 1.5rem; }
+
+.form-group { margin-bottom: 1rem; }
+.form-group-row { display: flex; gap: 10px; }
+.form-group-row .form-group { flex: 1; }
+
+label { display: block; margin-bottom: 0.5rem; font-weight: 600; font-size: 0.9rem; color: var(--secondary); }
+input, textarea {
+    width: 100%;
+    padding: 0.8rem;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    font-size: 0.9rem;
+    transition: border 0.3s;
+}
+input:focus, textarea:focus { border-color: var(--accent); outline: none; }
+
+.btn-download {
+    width: 100%;
+    padding: 1rem;
+    background-color: var(--accent);
+    color: white;
+    border: none;
+    border-radius: 4px;
+    font-size: 1rem;
+    cursor: pointer;
+    margin-top: 1rem;
+    font-weight: bold;
+}
+.btn-download:hover { background-color: #2980b9; }
+
+/* --- PREVIEW AREA (RIGHT) --- */
+.preview-area {
+    flex: 1;
+    padding: 2rem;
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.preview-header {
+    width: 100%;
+    max-width: 800px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1rem;
+}
+
+.badge {
+    background: #e1f5fe;
+    color: #0288d1;
+    padding: 5px 10px;
+    border-radius: 20px;
+    font-size: 0.8rem;
+    font-weight: bold;
+}
+
+/* --- THE A4 PAPER (ATS OPTIMIZED) --- */
+.a4-page {
+    background: white;
+    width: 210mm;
+    min-height: 297mm;
+    padding: 20mm;
+    box-shadow: 0 0 20px rgba(0,0,0,0.1);
+    color: #000;
+}
+
+/* ATS Specific Styling */
+.resume-header { text-align: center; margin-bottom: 2rem; border-bottom: 2px solid #000; padding-bottom: 1rem; }
+.resume-header h1 { font-size: 24pt; text-transform: uppercase; margin-bottom: 5px; }
+.resume-header h2 { font-size: 14pt; font-weight: 400; color: #333; margin-bottom: 10px; }
+.contact-info { font-size: 10pt; }
+
+.resume-section { margin-bottom: 1.5rem; }
+.resume-section h3 {
+    font-size: 12pt;
+    text-transform: uppercase;
+    border-bottom: 1px solid #ccc;
+    padding-bottom: 5px;
+    margin-bottom: 10px;
+    color: #000;
+}
+
+.resume-section p { font-size: 10pt; line-height: 1.5; text-align: justify; }
+
+/* Experience Items */
+.job-item { margin-bottom: 1rem; }
+.job-header { display: flex; justify-content: space-between; font-weight: bold; font-size: 11pt; }
+.job-company { font-style: italic; font-size: 10pt; }
+
+/* Print Specifics */
+@media print {
+    body { background: white; height: auto; overflow: visible; }
+    .editor-panel, .preview-header { display: none; }
+    .preview-area { padding: 0; display: block; }
+    .a4-page { box-shadow: none; width: 100%; margin: 0; }
+}
