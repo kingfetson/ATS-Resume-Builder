@@ -3,7 +3,7 @@
 
 const defaultConfig = {
     personal: {
-        fullName: "Alex Mercer",
+        fullName: "Festus Kimani",
         jobTitle: "Senior Full Stack Developer",
         email: "alex.mercer@example.com",
         phone: "(555) 123-4567",
