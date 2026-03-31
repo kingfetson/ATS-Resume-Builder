@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ATS Resume Builder</title>
+    <!-- Font Awesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div class="app-container">
+        <!-- LEFT SIDE: EDITOR -->
+        <aside class="editor-panel">
+            <h2><i class="fas fa-edit"></i> Edit Details</h2>
+            <form id="resumeForm">
+                
+                <div class="form-group">
+                    <label>Full Name</label>
+                    <input type="text" id="fullName" placeholder="John Doe">
+                </div>
+
+                <div class="form-group">
+                    <label>Job Title</label>
+                    <input type="text" id="jobTitle" placeholder="Software Engineer">
+                </div>
+
+                <div class="form-group-row">
+                    <div class="form-group">
+                        <label>Email</label>
+                        <input type="email" id="email" placeholder="john@example.com">
+                    </div>
+                    <div class="form-group">
+                        <label>Phone</label>
+                        <input type="text" id="phone" placeholder="+1 234 567 890">
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label>LinkedIn / Portfolio URL</label>
+                    <input type="text" id="linkedin" placeholder="linkedin.com/in/johndoe">
+                </div>
+
+                <div class="form-group">
+                    <label>Professional Summary</label>
+                    <textarea id="summary" rows="4" placeholder="Brief summary of your career..."></textarea>
+                </div>
+
+                <div class="form-group">
+                    <label>Skills (Comma separated)</label>
+                    <textarea id="skills" rows="3" placeholder="HTML, CSS, JavaScript, React, Node.js"></textarea>
+                </div>
+
+                <div class="form-group">
+                    <label>Experience (JSON Format for simplicity)</label>
+                    <textarea id="experience" rows="6" placeholder='[{"company": "Tech Corp", "role": "Dev", "date": "2020 - Present", "details": "Built apps..."}]'></textarea>
+                    <small>Paste JSON array or leave blank for demo.</small>
+                </div>
+
+                <div class="form-group">
+                    <label>Education (JSON Format)</label>
+                    <textarea id="education" rows="4" placeholder='[{"school": "University", "degree": "BSc CS", "year": "2019"}]'></textarea>
+                </div>
+
+                <button type="button" onclick="downloadResume()" class="btn-download">
+                    <i class="fas fa-download"></i> Download PDF
+                </button>
+            </form>
+        </aside>
+
+        <!-- RIGHT SIDE: PREVIEW -->
+        <main class="preview-area">
+            <div class="preview-header">
+                <h3>Live ATS Preview</h3>
+                <span class="badge">ATS Optimized</span>
+            </div>
+            
+            <!-- This is the A4 Paper Container -->
+            <div id="resume-document" class="a4-page">
+                <header class="resume-header">
+                    <h1 id="res-name">Your Name</h1>
+                    <h2 id="res-title">Target Job Title</h2>
+                    <div class="contact-info">
+                        <span id="res-email">email@example.com</span> | 
+                        <span id="res-phone">123-456-7890</span> | 
+                        <span id="res-link">linkedin.com</span>
+                    </div>
+                </header>
+
+                <section class="resume-section">
+                    <h3>Professional Summary</h3>
+                    <p id="res-summary">Summary goes here...</p>
+                </section>
+
+                <section class="resume-section">
+                    <h3>Skills</h3>
+                    <p id="res-skills">Skill 1, Skill 2, Skill 3</p>
+                </section>
+
+                <section class="resume-section">
+                    <h3>Experience</h3>
+                    <div id="res-experience-container">
+                        <!-- Dynamic Content -->
+                    </div>
+                </section>
+
+                <section class="resume-section">
+                    <h3>Education</h3>
+                    <div id="res-education-container">
+                        <!-- Dynamic Content -->
+                    </div>
+                </section>
+            </div>
+        </main>
+    </div>
+
+    <!-- HTML2PDF Library for downloading -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
+    <script src="config.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
